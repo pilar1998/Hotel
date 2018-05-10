@@ -154,7 +154,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				</div>
 		</div>
 
-		<div class="modal fade" id="verificar2" tabindex="-1" role="dialog">
+		<div class="modal fade" id="validar" tabindex="-1" role="dialog">
 			<!-- Modaldatos -->
 				<div class="modal-dialog">
 				<!-- Modal content-->
@@ -163,21 +163,57 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 							<button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#myModal2">&times;</button>
 							<h4>Por favor, llena todos los campos</h4>
 							<div class="readmore-w3">
-								<a class="readmore" href="#" data-toggle="modal" data-target="#myModal2">Aceptar</a>
+								<a class="readmore" href="#" data-dismiss="modal" data-toggle="modal" data-target="#myModal2">Aceptar</a>
 							</div>										
 						</div>
 					</div>
 				</div>
 		</div>
+
+		<div class="modal fade" id="validar2" tabindex="-1" role="dialog">
+			<!-- Modaldatos -->
+				<div class="modal-dialog">
+				<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#myModal3">&times;</button>
+							<h4>Por favor, llena todos los campos</h4>
+							<div class="readmore-w3">
+								<a class="readmore" href="#" data-dismiss="modal" data-toggle="modal" data-target="#myModal3">Aceptar</a>
+							</div>										
+						</div>
+					</div>
+				</div>
+		</div>
+
+		<div class="modal fade" id="validar3" tabindex="-1" role="dialog">
+			<!-- Modaldatos -->
+				<div class="modal-dialog">
+				<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#login">&times;</button>
+							<h4>Por favor, llena todos los campos</h4>
+							<div class="readmore-w3">
+								<a class="readmore" href="#" data-dismiss="modal" data-toggle="modal" data-target="#login">Aceptar</a>
+							</div>										
+						</div>
+					</div>
+				</div>
+		</div>
+
+
 		<div class="modal fade" id="login" tabindex="-1" role="dialog">
 			<!-- Modallogin -->
 				<div class="modal-dialog">
 				<!-- Modal content-->
 					<div class="modal-content">
 						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>	
+							<button type="button" class="close" data-dismiss="modal" id="cerrarin">&times;</button>	
+							<button type="button" class="close" data-dismiss="modal" data-toggle="modal" data-target="#reserva" id="abririn" style="visibility: hidden">&times;</button>
+							<button type="button" data-dismiss="modal" data-toggle="modal" data-target="#validar3" id="verificar3" style="visibility: hidden">&times;</button>	
 				            <h4>Bienvenido</h4>
-				            <form action="login.php" method="post" class="w3_form_post" target="main2" name="formulario2">
+				            <form action="login_usuario.php" method="post" class="w3_form_post" target="main2" name="formulario2" id="formulario2">
 				            	<div class="w3_agileits_main_grid w3l_main_grid">
 									<div class="agileits_grid">
 										<h5 class="w3_main_grid_left">Usuario *</h5>
@@ -192,14 +228,30 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<h5 class="w3_main_grid_left">Contraseña *</h5>
 										<br>
 										<br>
-										<input type="password" id="userPassword" name="userPassword" class="form-control input-sm chat-input" placeholder="password" required="" />	
+										<input type="password" id="userPassword" name="userPassword" class="form-control input-sm chat-input" placeholder="password" required=""/>	
 									</div>
 								</div>	
 								<div class="readmore-w3 w3_main_grid_right">
-									<a class="readmore" href="#" type="submit">Ingresar <i class="fa fa-sign-in"></i></a>
+									<a class="readmore" href="#" type="submit" id="ingresar">Ingresar <i class="fa fa-sign-in"></i></a>
+
 								</div>
 								<div class="clearfix"></div>									
 				            </form>								
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="reserva" tabindex="-1" role="dialog">
+			<!-- ModalReserva -->
+				<div class="modal-dialog modal-lg">
+				<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button  type="button" class="close" data-dismiss="modal" id="cerrar2">&times;</button>
+				            <h4>Bienvenido</h4>
+				            <div id="reservaconten"></div>
+				            		
 					</div>
 				</div>
 			</div>
@@ -321,7 +373,8 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 														<div class="w3_main_grid">					
 															<div class="w3_main_grid_right">
 																<input type="submit" id="button" value="Reservar" >
-																<input type="button" id="validar" value="Reservar" style="display: none" data-dismiss="modal" data-toggle="modal" data-target="#verificar2">
+																
+																<button type="button" data-dismiss="modal" data-toggle="modal" data-target="#validar" id="verificar" style="visibility: hidden">&times;</button>
 															</div>
 															<div class="clearfix"> </div>
 														</div>
@@ -446,7 +499,8 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 														<div class="w3_main_grid">					
 															<div class="w3_main_grid_right">
 																<input type="submit" id="button1" value="Reservar" >
-																<input type="button" id="validar1" value="Reservar" style="display: none" data-dismiss="modal" data-toggle="modal" data-target="#verificar2">
+																<input type="button" id="verificar2" value="Reservar" style="visibility: hidden" data-dismiss="modal" data-toggle="modal" data-target="#validar2">
+																<button type="button" data-dismiss="modal" data-toggle="modal" data-target="#validar2" id="verificar2" style="visibility: hidden">&times;</button>
 															</div>
 															<div class="clearfix"> </div>
 														</div>
@@ -500,7 +554,12 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				</div>			
 			</div>
 			<div class="readmore-w3" id="main3" style="display: none">
-				<a class="readmore" href="#" data-toggle="modal" data-target="#myModal3">Volver</a>
+				<a id="volver2" class="readmore" href="#" data-toggle="modal" data-target="#myModal2" style="display: none, visibility: hidden">Volver</a>
+				<a id="volver" class="readmore" href="index2.php">Aceptar</a>
+				<!--<input type="button" name="button" class="readmore" href="#" id="volver" value="Aceptar">-->
+			</div>
+			<div class="readmore-w3" id="main4" style="display: none">
+				<a id="volver3" class="readmore" href="#" data-toggle="modal" data-target="#myModal3" style="display: none, visibility: hidden">Volver</a>
 				<a id="volver" class="readmore" href="index2.php">Aceptar</a>
 				<!--<input type="button" name="button" class="readmore" href="#" id="volver" value="Aceptar">-->
 			</div>
@@ -712,7 +771,8 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 												document.getElementById('main').value ='';
 												document.getElementById('main3').value ='';
 												document.getElementById('main').style.display ='inherit';
-												document.getElementById('main3').style.display ='inherit';
+												document.getElementById('main3').style.display ='inherit';										
+												document.getElementById('main4').style.display ='none';
 												document.getElementById("cerrar").click();
 										}else{
 											document.getElementById("verificar").click();
@@ -745,7 +805,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					diaSalida = document.formulario3.diaSalida1.value;
 					idHabitacion = document.formulario3.idHabitacion1.value;
 					datos="Cedula="+Cedula+"&diaEntrada="+diaEntrada+"&diaSalida="+diaSalida+"&idHabitacion="+idHabitacion;
-					alert(datos);
+					
 				if (Cedula!=''){
 					if (diaEntrada!=''){
 						if (diaSalida!=''){
@@ -764,23 +824,77 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									document.getElementById('main').value ='';
 									document.getElementById('main3').value ='';
 									document.getElementById('main').style.display ='inherit';
-									document.getElementById('main3').style.display ='inherit';
+									document.getElementById('main4').style.display ='inherit';						
+									document.getElementById('main3').style.display ='none';
 									document.getElementById("cerrar1").click();
 							}else{
-								document.getElementById("verificar").click();
+								document.getElementById("verificar2").click();
 							}
 						}else{
-							document.getElementById("verificar").click();
+							document.getElementById("verificar2").click();
 						}
 					}else{
-						document.getElementById("verificar").click();
+						document.getElementById("verificar2").click();
 					}
 							
 				}else{
-					document.getElementById("verificar").click();
+					document.getElementById("verificar2").click();
 				}
 				
 			});
+
+
+			$('#ingresar').on('click', function(event) {
+				event.preventDefault();
+					user = document.formulario2.userName.value;
+					password = document.formulario2.userPassword.value;
+					datos="usuario="+user+"&password="+password;
+					
+				if (user!=''){
+					if (password!=''){										
+						$.ajax({
+							type: "post",
+							url:"login_usuario.php",
+							data: datos,
+							success: function(resp){
+								$("#reservaconten").html(resp);
+							}
+						});
+						//$("#reservaconten").load("login_usuario.php");
+						document.getElementById('main').value =' ';
+						document.getElementById('main3').value =' ';
+						document.getElementById("cerrarin").click();
+						document.getElementById("abririn").click();		
+						document.formulario2.userName.value='';
+						document.formulario2.userPassword.value='';				
+					}else{	
+						document.getElementById("verificar3").click();
+					}
+				}else{
+					document.getElementById("verificar3").click();
+				}
+				
+			});
+
+			
+
+			/*$("#myModal2,#myModal3,#myModal,#reserva,#validar,#validar2,#validar3,#login").mouseenter(function(){
+			    currentScroll=$(window).scrollTop();
+			    $(window).bind('scroll',lockscroll); 
+			}).mouseleave(function(){
+			    currentScroll=$(window).scrollTop();
+			    $(window).unbind('scroll',lockscroll); 
+			});
+
+			   /*$('#myModal2,#myModal3,#myModal,#reserva,#validar,#validar2,#validar3,#login').bind('mouseenter touchstart', function(e) {
+			        var current = $(window).scrollTop();
+			        $(window).scroll(function(event) {
+			            $(window).scrollTop(current);
+			        });
+			    });
+			    $('#myModal2,#myModal3,#myModal,#reserva,#validar,#validar2,#validar3,#login').bind('mouseleave touchend', function(e) {
+			        $(window).off('scroll');
+			    });
 			/*function objetoAjax(){
 				var xmlhttp = false;
 				try {
@@ -816,6 +930,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				document.getElementById('main').value ='';
 				document.getElementById('main3').value ='';
 			});
+
 				/*$('#button').on('click', function(event) {
 				/*	$('#main').load("reservaClienteNuevo.php");
 					//event.preventDefault();
