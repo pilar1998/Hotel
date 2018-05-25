@@ -241,21 +241,10 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				</div>
 			</div>
 		</div>
-
-		<div class="modal fade" id="reserva" tabindex="-1" role="dialog">
-			<!-- ModalReserva -->
-				<div class="modal-dialog modal-lg">
-				<!-- Modal content-->
-					<div class="modal-content">
-						<div class="modal-header">
-							<button  type="button" class="close" data-dismiss="modal" id="cerrar2">&times;</button>
-				            <h4>Bienvenido</h4>
-				            <div id="reservaconten"></div>
-				            		
-					</div>
-				</div>
-			</div>
-		</div>
+		<?php  
+		include('login_usuario.php');
+		?>
+		
 
 
 						<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
@@ -766,7 +755,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 														$("#main").html(resp);
 													}
 												});
-												$("#main1").load("reservaClienteNuevo.php");
+												//$("#main1").load("reservaClienteNuevo.php");
 												document.getElementById('main2').style.display ='none';
 												document.getElementById('main').value ='';
 												document.getElementById('main3').value ='';
@@ -878,40 +867,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 			
 
-			/*$("#myModal2,#myModal3,#myModal,#reserva,#validar,#validar2,#validar3,#login").mouseenter(function(){
-			    currentScroll=$(window).scrollTop();
-			    $(window).bind('scroll',lockscroll); 
-			}).mouseleave(function(){
-			    currentScroll=$(window).scrollTop();
-			    $(window).unbind('scroll',lockscroll); 
-			});
-
-			   /*$('#myModal2,#myModal3,#myModal,#reserva,#validar,#validar2,#validar3,#login').bind('mouseenter touchstart', function(e) {
-			        var current = $(window).scrollTop();
-			        $(window).scroll(function(event) {
-			            $(window).scrollTop(current);
-			        });
-			    });
-			    $('#myModal2,#myModal3,#myModal,#reserva,#validar,#validar2,#validar3,#login').bind('mouseleave touchend', function(e) {
-			        $(window).off('scroll');
-			    });
-			/*function objetoAjax(){
-				var xmlhttp = false;
-				try {
-					xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
-				} catch (e) {
-
-					try {
-						xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-					} catch (E) {
-						xmlhttp = false; }
-				}
-
-				if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
-				  xmlhttp = new XMLHttpRequest();
-				}
-				return xmlhttp;
-			}*/
+			
 			$('#volver').on('click', function(event) {
 				document.getElementById('main').style.display ='none';
 				document.getElementById('main3').style.display ='none';
@@ -931,62 +887,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				document.getElementById('main3').value ='';
 			});
 
-				/*$('#button').on('click', function(event) {
-				/*	$('#main').load("reservaClienteNuevo.php");
-					//event.preventDefault();
-					//$("#main").load("reservaClienteNuevo.php");
-					//Recogemos los valores introducimos en los campos de texto
-					alert ("jajaj");
-					Cedula = document.formulario.Cedula.value;
-					Nombre = document.formulario.Nombre.value;
-					Apellido = document.formulario.Apellido.value;
-					Email = document.formulario.Email.value;
-					diaEntrada = document.formulario.diaEntrada.value;
-					diaSalida = document.formulario.diaSalida.value;
-					idHabitacion = document.formulario.idHabitacion.value;
-
-			         //Aquí será donde se mostrará el resultado
-					document.getElementById('main2').style.display ='none';
-					document.getElementById('main').style.display ='inherit';
-					document.getElementById('main3').style.display ='inherit';
-					var datos="Cedula="+Cedula+"&Nombre="+Nombre+"&Apellido="+Apellido+"&Email="+Email+"&diaEntrada="+diaEntrada+"&diaSalida="+diaSalida+"&idHabitacion="+idHabitacion;
-
-					$.ajax({
-						type: "post",
-						url:"reservaClienteNuevo.php",
-						data: datos,
-						success: function(resp){
-							$("#main").html(resp);
-						}
-					});
-					return false;
-					//instanciamos el objetoAjax
-					/*ajax = objetoAjax();
-
-					//Abrimos una conexión AJAX pasando como parámetros el método de envío, y el archivo que realizará las operaciones deseadas
-					ajax.open("POST", "reservaClienteNuevo.php", true);
-
-					//cuando el objeto XMLHttpRequest cambia de estado, la función se inicia
-					ajax.onreadystatechange = function() {
-
-			             //Cuando se completa la petición, mostrará los resultados
-						if (ajax.readyState == 4){
-
-							//El método responseText() contiene el texto de nuestro 'consultar.php'. Por ejemplo, cualquier texto que mostremos por un 'echo'
-							main.value = (ajax.responseText)
-						}
-					}
-
-					//Llamamos al método setRequestHeader indicando que los datos a enviarse están codificados como un formulario.
-					ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-
-					//enviamos las variables a 'consulta.php'
-
-					ajax.send("Cedula="+Cedula+"&Nombre="+Nombre+"&Apellido="+Apellido+"&Email="+Email+"&diaEntrada="+diaEntrada+"&diaSalida="+diaSalida+"&idHabitacion="+idHabitacion);
-					alert("Cedula="+Cedula+"&Nombre="+Nombre+"&Apellido="+Apellido+"&Email="+Email+"&diaEntrada="+diaEntrada+"&diaSalida="+diaSalida+"&idHabitacion="+idHabitacion);
-					$("#main").load("reservaClienteNuevo.php");
-
-				}*/	
+				
 		</script>
 		<!-- //script for portfolio -->
 	<!-- //For-Gallery-js -->

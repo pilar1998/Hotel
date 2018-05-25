@@ -3,11 +3,13 @@ try {
     $wsdl_url = 'http://localhost:8080/HotelServidor/Hotel?WSDL';
     $client = new SOAPClient($wsdl_url);
     $params = array(
+        'estado_reserva' => 'disponible',
         'diaEntrada' => $_POST['diaEntrada'],
         'diaSalida' => $_POST['diaSalida'],
         'idCliente' => $_POST['Cedula'],
         'diaReserva' => (string)date('Y-m-d'),
         'idHabitacion' => $_POST['idHabitacion'],
+
     );
     $return = $client->AgregarReserva($params);
     if ($return->return=="no disponible"){
